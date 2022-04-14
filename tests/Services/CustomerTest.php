@@ -1,24 +1,22 @@
 <?php
 
-namespace store\Iugu\Services;
+namespace bubbstore\Iugu\Services;
 
-use store\Iugu\TestCase;
-use store\Iugu\Iugu;
-use store\Iugu\Exceptions\IuguException;
-use store\Iugu\Exceptions\IuguValidationException;
+use bubbstore\Iugu\Exceptions\IuguValidationException;
+use bubbstore\Iugu\Iugu;
+use bubbstore\Iugu\TestCase;
 
 class CustomerTest extends TestCase
 {
 
     /**
-     * @var \store\RDStation\Iugu
+     * @var \bubbstore\RDStation\Iugu
      */
     protected $iugu;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
-
         $this->iugu = new Iugu(
             'TOKEN'
         );
@@ -26,7 +24,7 @@ class CustomerTest extends TestCase
 
     public function test_if_email_is_invalid()
     {
-        $body = __DIR__.'/../ResponseSamples/Customers/InvalidCustomerEmail.json';
+        $body = __DIR__ . '/../ResponseSamples/Customers/InvalidCustomerEmail.json';
         $http = $this->mockHttpClient($body, 422);
 
         $this->expectException(IuguValidationException::class);
@@ -37,7 +35,7 @@ class CustomerTest extends TestCase
 
     public function test_create_customer()
     {
-        $body = __DIR__.'/../ResponseSamples/Customers/Customer.json';
+        $body = __DIR__ . '/../ResponseSamples/Customers/Customer.json';
         $http = $this->mockHttpClient($body);
 
         $customer = new Customer($http, $this->iugu);
@@ -53,24 +51,24 @@ class CustomerTest extends TestCase
 
     public function test_find_customer()
     {
-        $body = __DIR__.'/../ResponseSamples/Customers/Customer.json';
+        $body = __DIR__ . '/../ResponseSamples/Customers/Customer.json';
         $http = $this->mockHttpClient($body);
 
         $customer = new Customer($http, $this->iugu);
         $customer = $customer->find('77C2565F6F064A26ABED4255894224F0');
 
-        $this->assertContains('77C2565F6F064A26ABED4255894224F0', $customer['id']);
+        $this->assertStringContainsString('77C2565F6F064A26ABED4255894224F0', $customer['id']);
     }
 
     public function test_delete_customer()
     {
-        $body = __DIR__.'/../ResponseSamples/Customers/Customer.json';
+        $body = __DIR__ . '/../ResponseSamples/Customers/Customer.json';
         $http = $this->mockHttpClient($body);
 
         $customer = new Customer($http, $this->iugu);
         $customer = $customer->delete('77C2565F6F064A26ABED4255894224F0');
 
-        $this->assertContains('77C2565F6F064A26ABED4255894224F0', $customer['id']);
+        $this->assertStringContainsString('77C2565F6F064A26ABED4255894224F0', $customer['id']);
     }
 
 }

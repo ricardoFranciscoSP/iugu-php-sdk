@@ -1,23 +1,20 @@
 <?php
 
-namespace store\Iugu;
+namespace bubbstore\Iugu;
 
+use bubbstore\Iugu\Contracts\CustomerInterface;
 use Mockery;
-use GuzzleHttp\ClientInterface;
-use store\Iugu\Services\Customer;
-use store\Iugu\Contracts\CustomerInterface;
 
 class ClientTest extends TestCase
 {
     /**
-     * @var \store\Iugu\Iugu
+     * @var \bubbstore\Iugu\Iugu
      */
     protected $iugu;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
-
         $this->iugu = new Iugu(
             'TOKEN',
             Mockery::mock(CustomerInterface::class)

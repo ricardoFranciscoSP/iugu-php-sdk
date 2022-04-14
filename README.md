@@ -3,12 +3,12 @@
 Biblioteca que realiza integração com a API da [Iugu](http://www.iugu.com)
 
 [![StyleCI](https://styleci.io/repos/140902040/shield?branch=master)](https://styleci.io/repos/140902040)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d4e66f98ad0539e0b65d/maintainability)](https://codeclimate.com/github/store/iugu-php-sdk/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d4e66f98ad0539e0b65d/maintainability)](https://codeclimate.com/github/bubbstore/iugu-php-sdk/maintainability)
 
 ## Instalação via composer
 
 ```bash
-$ composer require store/iugu-php-sdk
+$ composer require ricardo/iugu-php-sdk
 ```
 
 ## Serviços
@@ -27,9 +27,9 @@ Este SDK suporta os seguintes serviços:
 Para utilizar este SDK, será necessário utilizar seu token de acesso de sua conta Iugu.
 
 ```php
-use store\Iugu;
-use store\Iugu\Exceptions\IuguException;
-use store\Iugu\Exceptions\IuguValidationException;
+use bubbstore\Iugu;
+use bubbstore\Iugu\Exceptions\IuguException;
+use bubbstore\Iugu\Exceptions\IuguValidationException;
 
 $iugu = new Iugu('SEU_TOKEN');
 ```
@@ -40,8 +40,8 @@ $iugu = new Iugu('SEU_TOKEN');
 
 ```php
 $customer = $iugu->customer()->create([
-    'name' => 'Ricardo Francisco',
-    'email' => 'ri22sp@gmail.comr',
+    'name'  => 'User Test',
+    'email' => 'test@test.com',
 ]);
 
 // Imprime o ID do cliente
@@ -76,33 +76,33 @@ $iugu->customer()->delete('ID_CLIENTE');
 
 ```php
 $charge = $iugu->charge()->create([
-            'method' => 'bank_slip',
-            'email' => 'ri22sp@gmail.comr',
+            'method'   => 'bank_slip',
+            'email'    => 'test@test.com',
             'order_id' => uniqid(),
-            'payer' => [
-                'cpf_cnpj' => '65634052076',
-                'name' => 'Ricardo Francisco',
+            'payer'    => [
+                'cpf_cnpj'     => '65634052076',
+                'name'         => 'User Test',
                 'phone_prefix' => '11',
-                'phone' => '11111111',
-                'email' => 'ri22sp@gmail.comr',
-                'address' => [
-                    'street' => 'Foo Bar',
-                    'number' => '123',
+                'phone'        => '111111111',
+                'email'        => 'test@test.com',
+                'address'      => [
+                    'street'   => 'Foo Bar',
+                    'number'   => '123',
                     'district' => 'Foo',
-                    'city' => 'Foo',
-                    'state' => 'SP',
+                    'city'     => 'Foo',
+                    'state'    => 'SP',
                     'zip_code' => '14940000',
                 ],
             ],
             'items' => [
                 [
                     'description' => 'Item 1',
-                    'quantity' => 1,
+                    'quantity'    => 1,
                     'price_cents' => 1000
                 ],
                 [
                     'description' => 'Item 2',
-                    'quantity' => 2,
+                    'quantity'    => 2,
                     'price_cents' => 2000
                 ],
             ],
@@ -114,7 +114,7 @@ $charge = $iugu->charge()->create([
 ```php
 $charge = $iugu->charge()->create([
     'invoice_id' => '12345678',
-    'token' => '0000000000000000' // Token gerado através da lib iugu.js
+    'token'      => '0000000000000000' // Token gerado através da lib iugu.js
 ]);
 ```
 
@@ -124,44 +124,44 @@ $charge = $iugu->charge()->create([
 
 ```php
 $invoice = $iugu->invoice()->create([
-    'order_id' => uniqid(),
-    'email' => 'ri22sp@gmail.comr',
-    'due_date' => '2018-07-14',
+    'order_id'         => uniqid(),
+    'email'            => 'test@test.com',
+    'due_date'         => '2018-07-14',
     'notification_url' => 'https://webhook.site/08703bf2-d408-4f4c-b91c-0bc8e14352b2',
-    'fines' => false,
+    'fines'            => false,
     'per_day_interest' => false,
-    'discount_cents' => 500,
+    'discount_cents'   => 500,
     'ignore_due_email' => true,
-    'payable_with' => 'bank_slip',
+    'payable_with'     => 'bank_slip',
     'items' => [
         [
             'description' => 'Item 1',
-            'quantity' => 1,
+            'quantity'    => 1,
             'price_cents' => 1000
         ],
         [
             'description' => 'Item 2',
-            'quantity' => 2,
+            'quantity'    => 2,
             'price_cents' => 2000
         ],
         [
             'description' => 'Frete',
-            'quantity' => 1,
+            'quantity'    => 1,
             'price_cents' => 1000
         ],
     ],
     'payer' => [
-        'cpf_cnpj' => '65634052076',
-        'name' => 'Ricardo Francisco',
+        'cpf_cnpj'     => '65634052076',
+        'name'         => 'User Test',
         'phone_prefix' => '11',
-        'phone' => '11111111',
-        'email' => 'ri22sp@gmail.comr',
-        'address' => [
-            'street' => 'Foo Bar',
-            'number' => '123',
+        'phone'        => '11111111',
+        'email'        => 'test@test.com',
+        'address'      => [
+            'street'   => 'Foo Bar',
+            'number'   => '123',
             'district' => 'Foo',
-            'city' => 'Foo',
-            'state' => 'SP',
+            'city'     => 'Foo',
+            'state'    => 'SP',
             'zip_code' => '14940000',
         ],
     ],
@@ -202,7 +202,7 @@ $iugu->invoice()->cancel('ID_FATURA');
 ```php
 $payment = $iugu->paymentMethod()->create('ID_CLIENTE', [
     'description' => 'Cartão de Crédito',
-    'token' => '123456',
+    'token'       => '123456',
 ]);
 
 // Imprime o ID do pagamento
@@ -235,14 +235,7 @@ $iugu->paymentMethod()->delete('ID_CLIENTE', 'ID_METODO_PAGAMENTO');
 $ composer test
 ```
 
-## Change log
-
-Consulte [CHANGELOG](.github/CHANGELOG.md) para obter mais informações sobre o que mudou recentemente.
-
-## Contribuindo
-
-Consulte [CONTRIBUTING](.github/CONTRIBUTING.md) para obter mais detalhes.
 
 ## Segurança
 
-Se você descobrir quaisquer problemas relacionados à segurança, envie um e-mail para contato@store.com.br em vez de usar as issues.
+Se você descobrir quaisquer problemas relacionados à segurança, envie um e-mail para contato@bubbstore.com.br em vez de usar as issues.

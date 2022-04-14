@@ -1,11 +1,17 @@
 <?php
 
-namespace store\Iugu\Services;
+namespace bubbstore\Iugu\Services;
 
-use store\Iugu\Contracts\PaymentMethodInterface;
+use bubbstore\Iugu\Contracts\PaymentMethodInterface;
 
 class PaymentMethod extends BaseRequest implements PaymentMethodInterface
 {
+
+    /**
+     * PaymentMethod constructor.
+     * @param $http
+     * @param $iugu
+     */
     public function __construct($http, $iugu)
     {
         parent::__construct($http, $iugu);
@@ -16,9 +22,11 @@ class PaymentMethod extends BaseRequest implements PaymentMethodInterface
      *
      * Cria um novo método de pagamento.
      *
-     * @param  int $customerId
+     * @param int $customerId
      * @param array $params
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function create($customerId, array $params)
     {
@@ -32,9 +40,12 @@ class PaymentMethod extends BaseRequest implements PaymentMethodInterface
      *
      * Atualizar um método de pagamento.
      *
-     * @param  int $id
-     * @param  array  $params
+     * @param $customerId
+     * @param int $id
+     * @param array $params
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function update($customerId, $id, array $params)
     {
@@ -48,9 +59,11 @@ class PaymentMethod extends BaseRequest implements PaymentMethodInterface
      *
      * Procura um método de pagamento
      *
-     * @param  string $customerId
-     * @param  string $id
+     * @param string $customerId
+     * @param string $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function find($customerId, $id)
     {
@@ -64,9 +77,11 @@ class PaymentMethod extends BaseRequest implements PaymentMethodInterface
      *
      * Exclui um método de pagamento
      *
-     * @param  string $customerId
-     * @param  string $id
+     * @param string $customerId
+     * @param string $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function delete($customerId, $id)
     {

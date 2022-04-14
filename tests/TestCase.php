@@ -1,26 +1,27 @@
 <?php
 
-namespace store\Iugu;
+namespace bubbstore\Iugu;
 
-use Mockery;
 use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit_Framework_TestCase;
-use GuzzleHttp\Handler\MockHandler;
+use Mockery;
+use PHPUnit\Framework\TestCase as BaseTest;
 
-abstract class TestCase extends PHPUnit_Framework_TestCase
+abstract class TestCase extends BaseTest
 {
-    public function tearDown()
+    public function tearDown(): void
     {
+        parent::tearDown();
         Mockery::close();
     }
 
     /**
      * Mocks Guzzle HTTP client.
      *
-     * @param  string|null $responseBodyFile
-     * @param  int $httpCode
+     * @param string|null $responseBodyFile
+     * @param int $httpCode
      *
      * @return \GuzzleHttp\Client
      */

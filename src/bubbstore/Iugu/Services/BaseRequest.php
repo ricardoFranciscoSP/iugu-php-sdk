@@ -1,10 +1,10 @@
 <?php
 
-namespace store\Iugu\Services;
+namespace bubbstore\Iugu\Services;
 
-use store\Iugu\Exceptions\IuguException;
-use store\Iugu\Exceptions\IuguValidationException;
-use store\Iugu\Iugu;
+use bubbstore\Iugu\Exceptions\IuguException;
+use bubbstore\Iugu\Exceptions\IuguValidationException;
+use bubbstore\Iugu\Iugu;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 
@@ -20,7 +20,7 @@ class BaseRequest
     /**
      * Iugu
      *
-     * @var \store\Iugu\Iugu
+     * @var \bubbstore\Iugu\Iugu
      */
     protected $iugu;
 
@@ -38,6 +38,11 @@ class BaseRequest
      */
     protected $response;
 
+    /**
+     * BaseRequest constructor.
+     * @param ClientInterface $http
+     * @param Iugu $iugu
+     */
     public function __construct(ClientInterface $http, Iugu $iugu)
     {
         $this->http = $http;
@@ -71,6 +76,10 @@ class BaseRequest
     /**
      * sendApiRequest
      *
+     * @param $method
+     * @param $path
+     * @throws IuguException
+     * @throws IuguValidationException
      * @return void
      */
     protected function sendApiRequest($method, $path)

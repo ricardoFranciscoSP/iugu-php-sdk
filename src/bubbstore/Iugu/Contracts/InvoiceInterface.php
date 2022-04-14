@@ -1,6 +1,6 @@
 <?php
 
-namespace store\Iugu\Contracts;
+namespace bubbstore\Iugu\Contracts;
 
 interface InvoiceInterface
 {

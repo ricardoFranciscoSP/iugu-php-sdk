@@ -1,11 +1,17 @@
 <?php
 
-namespace store\Iugu\Services;
+namespace bubbstore\Iugu\Services;
 
-use store\Iugu\Contracts\CustomerInterface;
+use bubbstore\Iugu\Contracts\CustomerInterface;
 
 class Customer extends BaseRequest implements CustomerInterface
 {
+
+    /**
+     * Customer constructor.
+     * @param $http
+     * @param $iugu
+     */
     public function __construct($http, $iugu)
     {
         parent::__construct($http, $iugu);
@@ -18,6 +24,8 @@ class Customer extends BaseRequest implements CustomerInterface
      *
      * @param array $params
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function create(array $params)
     {
@@ -31,9 +39,11 @@ class Customer extends BaseRequest implements CustomerInterface
      *
      * Atualizar um cliente.
      *
-     * @param  int $id
-     * @param  array  $params
+     * @param int $id
+     * @param array $params
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function update($id, array $params)
     {
@@ -49,6 +59,8 @@ class Customer extends BaseRequest implements CustomerInterface
      *
      * @param  int $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function find($id)
     {
@@ -64,6 +76,8 @@ class Customer extends BaseRequest implements CustomerInterface
      *
      * @param  int $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function delete($id)
     {
@@ -77,6 +91,8 @@ class Customer extends BaseRequest implements CustomerInterface
      *
      * @param string $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function listPaymentMethods($id)
     {

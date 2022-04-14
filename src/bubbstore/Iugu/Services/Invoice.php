@@ -1,11 +1,17 @@
 <?php
 
-namespace store\Iugu\Services;
+namespace bubbstore\Iugu\Services;
 
-use store\Iugu\Contracts\InvoiceInterface;
+use bubbstore\Iugu\Contracts\InvoiceInterface;
 
 class Invoice extends BaseRequest implements InvoiceInterface
 {
+
+    /**
+     * Invoice constructor.
+     * @param $http
+     * @param $iugu
+     */
     public function __construct($http, $iugu)
     {
         parent::__construct($http, $iugu);
@@ -18,6 +24,8 @@ class Invoice extends BaseRequest implements InvoiceInterface
      *
      * @param array $params
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function create(array $params)
     {
@@ -33,6 +41,8 @@ class Invoice extends BaseRequest implements InvoiceInterface
      *
      * @param  int $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function capture($id)
     {
@@ -48,6 +58,8 @@ class Invoice extends BaseRequest implements InvoiceInterface
      *
      * @param  int $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function find($id)
     {
@@ -63,6 +75,8 @@ class Invoice extends BaseRequest implements InvoiceInterface
      *
      * @param  int $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function refund($id)
     {
@@ -78,6 +92,8 @@ class Invoice extends BaseRequest implements InvoiceInterface
      *
      * @param  int $id
      * @return array
+     * @throws \bubbstore\Iugu\Exceptions\IuguException
+     * @throws \bubbstore\Iugu\Exceptions\IuguValidationException
      */
     public function cancel($id)
     {

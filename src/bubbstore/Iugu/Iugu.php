@@ -1,18 +1,18 @@
 <?php
 
-namespace store\Iugu;
+namespace bubbstore\Iugu;
 
-use store\Iugu\Contracts\CustomerInterface;
-use store\Iugu\Contracts\PaymentMethodInterface;
-use store\Iugu\Contracts\ChargeInterface;
-use store\Iugu\Contracts\InvoiceInterface;
-use store\Iugu\Services\Customer;
-use store\Iugu\Services\PaymentMethod;
-use store\Iugu\Services\Charge;
-use store\Iugu\Services\Invoice;
-use store\Iugu\Exceptions\IuguException;
-use GuzzleHttp\ClientInterface;
+use bubbstore\Iugu\Contracts\ChargeInterface;
+use bubbstore\Iugu\Contracts\CustomerInterface;
+use bubbstore\Iugu\Contracts\InvoiceInterface;
+use bubbstore\Iugu\Contracts\PaymentMethodInterface;
+use bubbstore\Iugu\Exceptions\IuguException;
+use bubbstore\Iugu\Services\Charge;
+use bubbstore\Iugu\Services\Customer;
+use bubbstore\Iugu\Services\Invoice;
+use bubbstore\Iugu\Services\PaymentMethod;
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\ClientInterface;
 
 class Iugu
 {
@@ -20,28 +20,28 @@ class Iugu
     /**
      * Serviço de Cliente
      *
-     * @var \store\Iugu\Contracts\CustomerInterface
+     * @var \bubbstore\Iugu\Contracts\CustomerInterface
      */
     protected $customer;
 
     /**
      * Serviço de Método de Pagamento
      *
-     * @var \store\Iugu\Contracts\PaymentMethodInterface
+     * @var \bubbstore\Iugu\Contracts\PaymentMethodInterface
      */
     protected $paymentMethod;
 
     /**
      * Serviço de Cobrança
      *
-     * @var \store\Iugu\Contracts\ChargeInterface
+     * @var \bubbstore\Iugu\Contracts\ChargeInterface
      */
     protected $charge;
 
     /**
      * Serviço de Fatura
      *
-     * @var \store\Iugu\Contracts\InvoiceInterface
+     * @var \bubbstore\Iugu\Contracts\InvoiceInterface
      */
     protected $invoice;
 
@@ -67,15 +67,15 @@ class Iugu
         $this->apiKey = $apiKey;
         $this->http = $http ?: new HttpClient([
             'base_uri' => 'https://api.iugu.com/v1/',
-            'headers' => [
+            'headers'  => [
                 'Authorization' => sprintf('Basic %s', base64_encode($apiKey.':'.'')),
             ],
         ]);
 
-        $this->customer = $customer ?: new Customer($this->http, $this);
+        $this->customer      = $customer      ?: new Customer($this->http, $this);
         $this->paymentMethod = $paymentMethod ?: new PaymentMethod($this->http, $this);
-        $this->charge = $charge ?: new Charge($this->http, $this);
-        $this->invoice = $invoice ?: new Invoice($this->http, $this);
+        $this->charge        = $charge        ?: new Charge($this->http, $this);
+        $this->invoice       = $invoice       ?: new Invoice($this->http, $this);
     }
 
     /**
@@ -83,7 +83,7 @@ class Iugu
      *
      * Serviço de Cliente
      *
-     * @return \store\Iugu\Services\Customer
+     * @return \bubbstore\Iugu\Services\Customer
      */
     public function customer()
     {
@@ -95,7 +95,7 @@ class Iugu
      *
      * Serviço de Método de Pagamento
      *
-     * @return \store\Iugu\Services\PaymentMethod
+     * @return \bubbstore\Iugu\Services\PaymentMethod
      */
     public function paymentMethod()
     {
@@ -107,7 +107,7 @@ class Iugu
      *
      * Serviço de Cliente
      *
-     * @return \store\Iugu\Services\Charge
+     * @return \bubbstore\Iugu\Services\Charge
      */
     public function charge()
     {
@@ -119,7 +119,7 @@ class Iugu
      *
      * Serviço de Fatura
      *
-     * @return \store\Iugu\Services\Invoice
+     * @return \bubbstore\Iugu\Services\Invoice
      */
     public function invoice()
     {

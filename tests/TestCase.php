@@ -1,6 +1,6 @@
 <?php
 
-namespace bubbstore\Iugu;
+namespace store\Iugu;
 
 use Mockery;
 use GuzzleHttp\Client;

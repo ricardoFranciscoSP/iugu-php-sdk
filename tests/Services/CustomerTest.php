@@ -1,17 +1,17 @@
 <?php
 
-namespace bubbstore\Iugu\Services;
+namespace store\Iugu\Services;
 
-use bubbstore\Iugu\TestCase;
-use bubbstore\Iugu\Iugu;
-use bubbstore\Iugu\Exceptions\IuguException;
-use bubbstore\Iugu\Exceptions\IuguValidationException;
+use store\Iugu\TestCase;
+use store\Iugu\Iugu;
+use store\Iugu\Exceptions\IuguException;
+use store\Iugu\Exceptions\IuguValidationException;
 
 class CustomerTest extends TestCase
 {
 
     /**
-     * @var \bubbstore\RDStation\Iugu
+     * @var \store\RDStation\Iugu
      */
     protected $iugu;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace bubbstore\Iugu\Services;
+namespace store\Iugu\Services;
 
-use bubbstore\Iugu\Exceptions\IuguException;
-use bubbstore\Iugu\Exceptions\IuguValidationException;
-use bubbstore\Iugu\Iugu;
+use store\Iugu\Exceptions\IuguException;
+use store\Iugu\Exceptions\IuguValidationException;
+use store\Iugu\Iugu;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 
@@ -20,7 +20,7 @@ class BaseRequest
     /**
      * Iugu
      *
-     * @var \bubbstore\Iugu\Iugu
+     * @var \store\Iugu\Iugu
      */
     protected $iugu;
 

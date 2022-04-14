@@ -1,8 +1,8 @@
 <?php
 
-namespace bubbstore\Iugu\Services;
+namespace store\Iugu\Services;
 
-use bubbstore\Iugu\Contracts\InvoiceInterface;
+use store\Iugu\Contracts\InvoiceInterface;
 
 class Invoice extends BaseRequest implements InvoiceInterface
 {

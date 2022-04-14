@@ -1,6 +1,6 @@
 <?php
 
-namespace bubbstore\Iugu\Contracts;
+namespace store\Iugu\Contracts;
 
 interface PaymentMethodInterface
 {

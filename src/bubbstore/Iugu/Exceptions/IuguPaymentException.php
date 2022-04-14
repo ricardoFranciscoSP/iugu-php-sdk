@@ -1,6 +1,6 @@
 <?php
 
-namespace bubbstore\Iugu\Exceptions;
+namespace store\Iugu\Exceptions;
 
 use Exception;
 

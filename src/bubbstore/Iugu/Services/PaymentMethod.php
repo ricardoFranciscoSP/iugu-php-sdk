@@ -1,8 +1,8 @@
 <?php
 
-namespace bubbstore\Iugu\Services;
+namespace store\Iugu\Services;
 
-use bubbstore\Iugu\Contracts\PaymentMethodInterface;
+use store\Iugu\Contracts\PaymentMethodInterface;
 
 class PaymentMethod extends BaseRequest implements PaymentMethodInterface
 {

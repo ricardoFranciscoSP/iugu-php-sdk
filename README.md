@@ -3,12 +3,12 @@
 Biblioteca que realiza integração com a API da [Iugu](http://www.iugu.com)
 
 [![StyleCI](https://styleci.io/repos/140902040/shield?branch=master)](https://styleci.io/repos/140902040)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d4e66f98ad0539e0b65d/maintainability)](https://codeclimate.com/github/bubbstore/iugu-php-sdk/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d4e66f98ad0539e0b65d/maintainability)](https://codeclimate.com/github/store/iugu-php-sdk/maintainability)
 
 ## Instalação via composer
 
 ```bash
-$ composer require bubbstore/iugu-php-sdk
+$ composer require store/iugu-php-sdk
 ```
 
 ## Serviços
@@ -27,9 +27,9 @@ Este SDK suporta os seguintes serviços:
 Para utilizar este SDK, será necessário utilizar seu token de acesso de sua conta Iugu.
 
 ```php
-use bubbstore\Iugu;
-use bubbstore\Iugu\Exceptions\IuguException;
-use bubbstore\Iugu\Exceptions\IuguValidationException;
+use store\Iugu;
+use store\Iugu\Exceptions\IuguException;
+use store\Iugu\Exceptions\IuguValidationException;
 
 $iugu = new Iugu('SEU_TOKEN');
 ```
@@ -40,8 +40,8 @@ $iugu = new Iugu('SEU_TOKEN');
 
 ```php
 $customer = $iugu->customer()->create([
-    'name' => 'Lucas Colette',
-    'email' => 'lucas@bubb.com.br',
+    'name' => 'Ricardo Francisco',
+    'email' => 'ri22sp@gmail.comr',
 ]);
 
 // Imprime o ID do cliente
@@ -77,14 +77,14 @@ $iugu->customer()->delete('ID_CLIENTE');
 ```php
 $charge = $iugu->charge()->create([
             'method' => 'bank_slip',
-            'email' => 'lucas@bubb.com.br',
+            'email' => 'ri22sp@gmail.comr',
             'order_id' => uniqid(),
             'payer' => [
                 'cpf_cnpj' => '65634052076',
-                'name' => 'Lucas Colette',
+                'name' => 'Ricardo Francisco',
                 'phone_prefix' => '11',
                 'phone' => '11111111',
-                'email' => 'lucas@bubb.com.br',
+                'email' => 'ri22sp@gmail.comr',
                 'address' => [
                     'street' => 'Foo Bar',
                     'number' => '123',
@@ -125,7 +125,7 @@ $charge = $iugu->charge()->create([
 ```php
 $invoice = $iugu->invoice()->create([
     'order_id' => uniqid(),
-    'email' => 'lucas@bubb.com.br',
+    'email' => 'ri22sp@gmail.comr',
     'due_date' => '2018-07-14',
     'notification_url' => 'https://webhook.site/08703bf2-d408-4f4c-b91c-0bc8e14352b2',
     'fines' => false,
@@ -152,10 +152,10 @@ $invoice = $iugu->invoice()->create([
     ],
     'payer' => [
         'cpf_cnpj' => '65634052076',
-        'name' => 'Lucas Colette',
+        'name' => 'Ricardo Francisco',
         'phone_prefix' => '11',
         'phone' => '11111111',
-        'email' => 'lucas@bubb.com.br',
+        'email' => 'ri22sp@gmail.comr',
         'address' => [
             'street' => 'Foo Bar',
             'number' => '123',
@@ -245,4 +245,4 @@ Consulte [CONTRIBUTING](.github/CONTRIBUTING.md) para obter mais detalhes.
 
 ## Segurança
 
-Se você descobrir quaisquer problemas relacionados à segurança, envie um e-mail para contato@bubbstore.com.br em vez de usar as issues.
+Se você descobrir quaisquer problemas relacionados à segurança, envie um e-mail para contato@store.com.br em vez de usar as issues.

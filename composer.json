@@ -1,5 +1,5 @@
 {
-	"name": "bubbstore/iugu-php-sdk",
+	"name": "store/iugu-php-sdk",
 	"type": "library",
 	"description": "Biblioteca não oficial de integração com a API da Iugu",
 	"keywords": [
@@ -19,7 +19,7 @@
 	},
 	"autoload-dev": {
         "psr-4": {
-            "bubbstore\\Iugu\\": "tests"
+            "store\\Iugu\\": "tests"
         }
     },
     "scripts": {
@@ -29,14 +29,14 @@
     },
 	"autoload": {
 		"psr-0": {
-			"bubbstore": "src/"
+			"store": "src/"
 		}
 	},
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Lucas Colette",
-			"email": "lucas@bubb.com.b"
+			"name": "Ricardo Francisco",
+			"email": "ri22sp@gmail.com"
 		}
 	],
 	"minimum-stability": "stable"

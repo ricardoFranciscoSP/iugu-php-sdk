@@ -1,5 +1,5 @@
 {
-  "name": "ricardo/iugu-php-sdk",
+  "name": "rfservices/iugu-php-sdk",
   "type": "library",
   "description": "Biblioteca não oficial de integração com a API da Iugu",
   "keywords": [

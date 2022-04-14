@@ -8,7 +8,7 @@ Biblioteca que realiza integração com a API da [Iugu](http://www.iugu.com)
 ## Instalação via composer
 
 ```bash
-$ composer require ricardo/iugu-php-sdk
+$ composer require rfservices/iugu-php-sdk
 ```
 
 ## Serviços
